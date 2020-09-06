@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Count</title>
+</head>
+<body>
+
+	<h1>Count the words!</h1>
+	<br>
+	<form action="{% url 'home' %}">
+		<input type="submit" value="start again">
+	</form>
+	<!-- <a href="{% url 'home' %}">start again</a> -->
+	<!-- this does not work -->
+<!-- 	<input type="button" onclick="{% url 'home' %}" value="start again"> -->
+	<br>
+	<h3>there are {{count}} words here</h3>
+	<h4>your words:</h4>
+	<h5>{{fulltext}}</h5>
+	<br>
+	<h4>word count</h4>
+	<h5>
+		<!-- word is a key, counttoal is value -->
+		{% for word, counttotal in 	sortedwords %}	
+		{{word}} - {{counttotal}}	
+		<br>
+		{% endfor %}
+	</h5>
+
+</body>
+</html>
